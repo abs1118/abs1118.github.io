@@ -1,0 +1,37 @@
+@blog:                  'blog';
+body {
+    min-width: 1370px;
+    font-family: "helvetica neue","Microsoft YaHei",arial,sans-serif;
+    font-size:14px;
+}
+
+@blog-prefix:          ~"@{blog}";
+
+.@{blog-prefix}-header {
+    top: 0;
+    background: #1d365d;
+    width: 100%;
+
+    &-title {
+        color: #fff;
+        font-size: 20px;
+        text-indent: 100px;
+    }
+
+
+}
+
+.@{blog-prefix}-sider{
+    height:800px;
+
+    &-logo{
+        width: 180px;
+        height: 180px;
+        text-align: center;
+        border-radius: 90px;
+        margin-top: 40px;
+        background: url("../../img/logo.jpg") -59px -58px;
+    }
+}
+
+
