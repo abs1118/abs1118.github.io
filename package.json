@@ -19,7 +19,8 @@
   },
   "scripts": {
     "start": "rm -rf dist  && webpack-dev-server --port 8089",
-    "release": "webpack"
+    "release": "webpack",
+    "proxy": "cd .. && atmo --static"
   },
   "dependencies": {
     "antd": "^2.5.2",
