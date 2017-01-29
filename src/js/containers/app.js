@@ -3,11 +3,14 @@
  */
 import React, { Component } from 'react';
 import { Layout } from 'antd';
+import Menu  from '../components/menu';
+import { inject, observer } from 'mobx-react';
 const { Header, Footer, Sider, Content } = Layout;
-import { Router, Route, IndexRoute, useRouterHistory } from 'react-router';
-import { createHashHistory } from 'history';
+
 import '../styles/app.less'
+@inject('appStore', 'blogListStore','uiStore')
 export default class App extends Component {
+
     render() {
         return (
             <div>
@@ -19,10 +22,11 @@ export default class App extends Component {
                     </Header>
                     <Layout>
                         <Sider className="blog-sider">
-                            <div className="blog-sider-logo">
-                            </div>
+                            <Menu></Menu>
                         </Sider>
-                        <Content>Content</Content>
+                        <Content>
+                            {this.props.children}
+                        </Content>
                     </Layout>
                 </Layout>
             </div>

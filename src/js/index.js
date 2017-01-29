@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'mobx-react';
-import App from './containers/app';
+import Root from './containers/root';
 import AppStore from './stores/appStore';
 
 function getQueryString(name) {
@@ -20,6 +20,7 @@ function getQueryString(name) {
 const appStore = new AppStore();
 const uiStore = appStore.uiStore;
 const blogListStore = appStore.blogListStore;
+const blogStore = appStore.blogStore;
 const MOUNT_NODE = document.getElementById('app');
 
 const isDebug = getQueryString('debugging');
@@ -27,6 +28,7 @@ if (__DEV__ || isDebug) {
     window.appStore = appStore;
     window.uiStore = uiStore;
     window.blogListStore = blogListStore;
+    window.blogStore = blogStore;
     const enableLogging = require('mobx-logger').default;
     enableLogging({
         predicate: () => true,
@@ -40,8 +42,9 @@ if (__DEV__ || isDebug) {
 ReactDOM.render(
     <Provider appStore={appStore}
               uiStore={uiStore}
+              blogStore={blogStore}
               blogListStore={blogListStore}>
-        <App />
+        <Root />
     </Provider>,
     MOUNT_NODE
 );

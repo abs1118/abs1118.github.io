@@ -4,22 +4,21 @@
 import { observable, action } from 'mobx';
 import { getBlogs } from '../fetchHandler';
 import { message } from 'antd';
+import BlogModel from '../models/blogModel'
 export  default  class BlogListStore{
     @observable blogList = [];
+    @observable loading = true;
     @action getBlogs(type) {
 
         getBlogs()
             .then(res => {
-                if (res.success) {
-                    // this.collectionList = res.attr.collectionList.map(item => new CollectionModel(item));
-                } else {
-                    message.info('查询无结果');
-                }
-                this.appStore.collectionSearchForm = searchForm;
+                    this.blogList = res.map(item=>new BlogModel(item));
+                    this.loading = false;
             })
             .catch(e => {
                 console.log(e);
                 message.error('请求失败');
+                this.loading = false;
             })
     }
 }
