@@ -1,0 +1,76 @@
+@blog-list:                  'blog-list';
+@blogList:          ~"@{blog-list}";
+.@{blogList}{
+    display: block;
+    .category{
+        margin-top: 20px;
+        text-align: center;
+    }
+    &-article{
+        display: block;
+        clear: both;
+        border-bottom: 1px dotted #d8caca;
+        &-title{
+            display: block;
+            margin: 5px 0px;
+            color: #000;
+            font: normal 20px/30px 'Microsoft YaHei';
+            h1{
+                display: inline;
+                font: normal 20px/30px 'Microsoft YaHei';
+                vertical-align: middle;
+            }
+            a{
+                color:#44a340;
+            }
+            a:hover{
+                color:#8bb58a;
+            }
+        }
+
+        &-description{
+            color: #666;
+            font: normal 14px/24px Arial;
+            text-indent: 2em;
+        }
+
+        &-manage{
+            padding: 5px 0;
+            color: #999;
+            font: normal 12px/24px Arial;
+            text-align: right;
+            span{
+                margin: 0 5px;
+            }
+            &-create-time{
+                margin: 0 5px 0 0;
+            }
+            &-view{
+                padding: 0 0 0 14px;
+            }
+            &-comments{
+                padding: 0 0 0 14px;
+            }
+            a {
+                color: #f90;
+                text-decoration: none;
+            }
+        }
+
+    }
+}
+
+.article{
+    &-title{
+        color: black;
+        font-size: 22px;
+        text-align: center;
+        line-height: 30px;
+    }
+    &-time{
+        color: #9b9b9b;
+        font-size: 14px;
+        margin: 5px 0 16px;
+        text-align: center;
+    }
+}

@@ -47,7 +47,7 @@ export  default  class All extends Component {
             view.push(<ItemView key={label} title={label} items={articles[label]} />);
         }
         return (
-            <div className="list">
+            <div className="blog-list">
                     <Spin tip="加载中..." spinning={loading}>
                             {view}
                         </Spin>

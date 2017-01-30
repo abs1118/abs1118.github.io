@@ -8,6 +8,7 @@ import { inject, observer } from 'mobx-react';
 const { Header, Footer, Sider, Content } = Layout;
 
 import '../styles/app.less'
+import '../styles/blogList.less'
 @inject('appStore', 'blogListStore','uiStore')
 export default class App extends Component {
 
@@ -24,7 +25,7 @@ export default class App extends Component {
                         <Sider className="blog-sider">
                             <Menu></Menu>
                         </Sider>
-                        <Content>
+                        <Content className="blog-main">
                             {this.props.children}
                         </Content>
                     </Layout>

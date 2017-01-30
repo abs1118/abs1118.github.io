@@ -20,7 +20,7 @@ export  default  class All extends Component {
         const {blogList,loading} = this.props.blogListStore;
         return (
             <Spin tip="加载中..." spinning={loading}>
-                <div className="list">
+                <div className="blog-list">
                     <ItemView title="全部" items={blogList.toJS()} />
                 </div>
             </Spin>
