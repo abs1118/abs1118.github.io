@@ -16,6 +16,20 @@ export  default class Article extends Component{
         });
     }
 
+    componentDidMount() {
+        // 显示多说评论框
+        this.toggleDuoshuoComment();
+    }
+
+    toggleDuoshuoComment() {
+        let ele = this.refs['ds'];
+        try {
+            window.DUOSHUO.EmbedThread(ele);
+        } catch(e) {
+
+        }
+    }
+
     render() {
         return (
             <div>
@@ -25,6 +39,9 @@ export  default class Article extends Component{
                     <div className="article-desc article-content"
                          dangerouslySetInnerHTML={{__html: marked(this.props.content)}}>
                     </div>
+                </div>
+                <div className="article">
+                    <div ref="ds" className="ds-thread" data-thread-key={this.props.number} data-title={this.props.title} data-url={window.location.href}></div>
                 </div>
             </div>
         );

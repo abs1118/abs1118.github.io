@@ -11,7 +11,29 @@ import '../styles/app.less'
 import '../styles/blogList.less'
 @inject('appStore', 'blogListStore','uiStore')
 export default class App extends Component {
+    constructor(props) {
+        super(props);
+        this.addDuoshuoComment = this.addDuoshuoComment.bind(this);
+    }
 
+    componentDidMount() {
+
+        // 添加多说评论框
+        this.addDuoshuoComment();
+
+    }
+
+    addDuoshuoComment() {
+        window.duoshuoQuery = {short_name:"abs1118"};
+        (function() {
+            var ds = document.createElement('script');
+            ds.type = 'text/javascript';ds.async = true;
+            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+            ds.charset = 'UTF-8';
+            (document.getElementsByTagName('head')[0]
+            || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+    }
     render() {
         return (
             <div>
