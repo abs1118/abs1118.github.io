@@ -37,8 +37,6 @@ export default class Item extends Component {
           <div className={`${prefix}-article-manage`}>
               <span className={`${prefix}-article-manage-create-time`}>{this.props.create_time}</span>
 
-
-              <span className={`${prefix}-article-manage-view`} title="阅读次数"><a href={'#article/' + this.props.number} title="阅读次数">阅读</a>(564)</span>
               <span className={`${prefix}-article-manage-comments`} title="评论次数">
                   <a href={'#article/' + this.props.number} title="评论次数">评论</a>(
                   <span className="ds-thread-count" data-thread-key={this.props.number} data-count-type="comments"></span>)

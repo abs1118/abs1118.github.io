@@ -22,28 +22,82 @@ body {
 }
 
 .@{blog-prefix}-sider{
-    height:800px;
+    height:100%;
+    position: fixed;
+    max-width: 320px;
+    width: 22%;
+    display: table;
+
+    .home{
+        display: table-cell;
+        vertical-align: middle;
+    }
 
     &-logo{
-        width: 180px;
-        height: 180px;
+        width: 140px;
+        height: 140px;
         text-align: center;
-        border-radius: 90px;
+        border-radius: 70px;
         margin: 15px auto 0;
-        background: url("../../img/logo.jpg") -59px -58px;
+        background: url("../../img/logo.jpg") -84px -61px;
     }
 
-    ul li{
-        margin: 5px 0;
-        line-height: 40px;
-        background-color: gray;
-        text-indent: 30px;
+    .abd{
+        transform: rotate3d(0, 1, 0, -180deg);
     }
+
+    &-content{
+        text-align:center;
+        margin: 15px 0;
+        h1 a{
+            color: #fff;
+            font-family: serif;
+            font-weight: normal;
+        }
+
+        &-span{
+            font-size: 0.6em;
+            font-weight: lighter;
+            letter-spacing: 3px;
+            color: #CCCCCC;
+        }
+        &-p{
+            color: #fff;
+        }
+        .first-hr{
+            width: 50%;
+            margin: 20px auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+        .second-hr{
+            width: 15%;
+            margin: 20px auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+        &-sider{
+            text-align: center;
+            ul li{
+                margin: 5px 10px;
+                line-height: 40px;
+                display: inline-block;
+                a{
+                    color: #9b9b9b;
+                }
+                a:hover{
+                    color: #ffffff;
+                }
+            }
+
+        }
+    }
+
+
 }
 
 .@{blog-prefix}-main{
-    padding: 20px;
-    border: solid 1px #80DFEA;
+    height: 100%;
+    width: 70%;
+    margin-left: 22%;
+    padding: 45px 70px 0px;
     background: #fff;
-    margin: 0 8px;
 }

@@ -38,19 +38,12 @@ export default class App extends Component {
         return (
             <div>
                 <Layout>
-                    <Header className="blog-header">
-                        <div className="blog-header-title">
-                            独自闯天涯的博客
-                        </div>
-                    </Header>
-                    <Layout>
                         <Sider className="blog-sider">
                             <Menu></Menu>
                         </Sider>
                         <Content className="blog-main">
                             {this.props.children}
                         </Content>
-                    </Layout>
                 </Layout>
             </div>
         );
