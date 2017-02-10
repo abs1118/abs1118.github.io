@@ -36,8 +36,8 @@ export default class App extends Component {
     }
     render() {
         return (
-            <div>
-                <Layout>
+            <div style={{height:'inherit'}}>
+                <Layout style={{height:'inherit',background: '#fff'}}>
                         <Sider className="blog-sider">
                             <Menu></Menu>
                         </Sider>

@@ -14,6 +14,7 @@ export default class ArticleCon extends Component {
     }
 
     componentWillMount() {
+        this.props.blogStore.loading = true;
         const { blogStore } = this.props;
         const { id } = this.props.params;
         blogStore.getBlog(id);
@@ -34,8 +35,6 @@ export default class ArticleCon extends Component {
         );
     }
 
-    componentDidMount(){
-        this.props.blogStore.loading = true;
-    }
+
 };
 

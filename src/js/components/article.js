@@ -4,10 +4,11 @@
 import React, { Component } from 'react';
 import marked from 'marked';
 import hljs from 'highlight.js';
+import 'highlight.js/styles/default.css';
 export  default class Article extends Component{
     componentWillMount() {
         window.scrollTo(0, 0);
-
+        hljs.initHighlightingOnLoad();
         // 代码高亮
         marked.setOptions({
             highlight: function (code) {
@@ -32,7 +33,7 @@ export  default class Article extends Component{
 
     render() {
         return (
-            <div>
+            <div id="articleBox">
                 <div className="article">
                     <h1 className="article-title">{this.props.title}</h1>
                     <p className="article-time">
