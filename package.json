@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "sxx's blog",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release:watch": "webpack --watch",
+    "start": "rm -rf dist  && webpack-dev-server --port 8089",
+    "release": "webpack",
+    "proxy": "cd .. && atmo --static"
   },
   "repository": {
     "type": "git",
@@ -17,28 +20,24 @@
   "bugs": {
     "url": "https://github.com/abs1118/abs1118.github.io/issues"
   },
-  "scripts": {
-    "start": "rm -rf dist  && webpack-dev-server --port 8089",
-    "release": "webpack",
-    "proxy": "cd .. && atmo --static"
-  },
   "dependencies": {
     "antd": "^2.5.2",
     "array.prototype.find": "^2.0.0",
+    "clean-webpack-plugin": "^0.1.19",
     "es5-shim": "^4.5.9",
     "es6-promise": "^3.3.1",
     "fetch-jsonp": "^1.0.3",
     "highlight.js": "^9.6.0",
     "isomorphic-fetch": "^2.2.1",
     "jquery": "^1.11.1",
-    "marked": "^0.3.6",
-    "nprogress": "^0.2.0",
-    "object-assign": "^4.1.0",
     "lodash": "^4.17.2",
+    "marked": "^0.3.6",
     "mobx": "^2.7.0",
     "mobx-logger": "^0.3.1",
     "mobx-react": "^4.0.3",
     "moment": "^2.17.1",
+    "nprogress": "^0.2.0",
+    "object-assign": "^4.1.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-router": "^2.7.0",

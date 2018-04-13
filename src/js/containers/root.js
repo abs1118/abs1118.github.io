@@ -36,6 +36,12 @@ var ARTICLE = (location, cb) => {
         cb(null, require('../containers/acticleCon.js').default);
     }, 'article');
 };
+var CD = (location, cb) => {
+  NProgress.start();
+  require.ensure([], require => {
+    cb(null, require('../containers/countdown.js').default);
+  }, 'countdown');
+};
 const routes = (
     <Route path="/" component={App}>
         <IndexRoute component={Home} />
@@ -43,6 +49,7 @@ const routes = (
         <Route path="tags" getComponent={TAGS} />
         <Route path="archive" getComponent={ARCHIVE} />
         <Route path="article/:id" getComponent={ARTICLE} />
+        <Route path="countdown" getComponent={CD} />
     </Route>
 );
 

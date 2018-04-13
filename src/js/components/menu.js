@@ -24,7 +24,6 @@ class Menu extends Component {
                       <li><Link to="">关于我</Link></li>
                   </ul>
               </div>
-
           </div>
       </div>
     );

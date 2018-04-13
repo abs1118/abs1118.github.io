@@ -7,6 +7,7 @@ const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackplugin = require('clean-webpack-plugin');
 const pkg = require(path.join(__dirname, 'package.json'));
 const theme = require(path.join(__dirname, pkg.theme));
 const query = `{"sourceMap": true, "modifyVars": ${JSON.stringify(theme)}}`;
@@ -148,6 +149,7 @@ const startConfig = merge(common, {
 const releaseConfig = merge(common, {
     output: {
         path: PATHS.release,
+        publicPath: './release/',
         filename: '[name].js',
         chunkFilename: '[chunkhash].chunk.js'
     },
@@ -169,26 +171,36 @@ const releaseConfig = merge(common, {
             name: ['vendor', 'manifest'],
             filename: '[name].js',
         }),
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].css'),
+        new CleanWebpackplugin(['release'], {root: '', verbose: true})
     ],
     module: {
         loaders: [
             {
                 test: /\.less$/,
-                loader: ExtractTextPlugin.extract('style', 'css?minimize&modules&localIdentName=[local]!postcss!less?' + query)
+                loader: ExtractTextPlugin.extract('style', 'css?minimize&modules&localIdentName=[local]!postcss!less?' + query,{
+                  publicPath: './'
+                })
             }, {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css?minimize&modules&localIdentName=[local]!postcss')
+                loader: ExtractTextPlugin.extract('style', 'css?minimize&modules&localIdentName=[local]!postcss',{
+                  publicPath: './'
+                })
             }
         ]
     }
 });
+
+const releaseWatchConfig = merge(releaseConfig, {devtool: 'source-map'});
 
 const TARGET = process.env.npm_lifecycle_event;
 process.env.NODE_ENV = 'production';
 switch(TARGET) {
     case 'release':
         module.exports = releaseConfig;
+        break;
+    case 'release:watch':
+        module.exports = releaseWatchConfig;
         break;
     default:
         process.env.NODE_ENV = 'development';
